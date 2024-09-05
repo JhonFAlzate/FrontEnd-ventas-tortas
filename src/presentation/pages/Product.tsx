@@ -1,18 +1,30 @@
-import { ProductsCard } from "../components";
+import { useQuery } from "@tanstack/react-query";
+import { getProduct } from "@/api/ProductsAPI";
+
+
 
 export default function Product() {
-  return (
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey:['tortas'],
+    queryFn: getProduct,
+    retry: false,
+  });
+
+  if (isLoading) return <p>Loading...</p>;
+  if (isError) return <p>Error loading products</p>;
+
+
+  if( data ) return (
     <>
-
-      <div  className="p-10 flex flex-row gap-10 overflow-x-auto">
-        <ProductsCard/>
-        <ProductsCard/>
-        <ProductsCard/>
-        <ProductsCard/>
-        <ProductsCard/>
-
-
-
+      <h2>Productos</h2>
+      <div className="pt-5 grid  gap-5 grid-cols-3">
+        {/* { data.map(product =>(
+          <ProductsCard
+            key={product.id}
+            product={product}
+          />
+        )) } */}
       </div>
     </>
   )

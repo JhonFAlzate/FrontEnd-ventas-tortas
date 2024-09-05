@@ -5,10 +5,9 @@ import { SidebarMenuItem } from "../components";
 export default function DashboardLayout() {
   return (
     <>
-      <main className="flex flex-row h-screen overflow-x-auto">
+      <main className="flex flex-row min-h-screen ">
 
-
-        <nav className="h-screen w-[300px] bg-[#101010] pt-10 px-16 text-white relative">
+        <nav className="w-[300px] min-h-scree bg-[#101010] pt-10 px-16 text-white relative">
           <h2 className="font-black text-xl">Tortas Don Jhon!!</h2>
           <ul className="flex pt-10 flex-col gap-5">
           {menuRouter.map((option) => (
@@ -24,7 +23,7 @@ export default function DashboardLayout() {
           </ul>
         </nav>
 
-        <section className="p-10 flex flex-row gap-10 overflow-x-auto">
+        <section className="p-10 flex-grow bg-gray-200">
           <Outlet />
         </section>
       </main>

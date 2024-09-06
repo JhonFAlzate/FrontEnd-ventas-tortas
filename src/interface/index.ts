@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 
 /**Product */
-const productsSchema = z.object({
+export const productsSchema = z.object({
     id: z.number(),
     nombreProducto: z.string(),
     precioCompra : z.number(),
@@ -19,3 +19,4 @@ export const dashboardProductSchema = z.array(
 type oneProduct = z.infer<typeof productsSchema>;
 
 export type productsPastel = Pick<oneProduct, 'id' | 'nombreProducto' | 'precioCompra' |'precioVenta' |'tipoProducto'>;
+export type optionProduct = Pick<oneProduct, 'tipoProducto'>;

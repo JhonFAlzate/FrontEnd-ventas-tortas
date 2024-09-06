@@ -27,6 +27,7 @@ export default function DashboardLayout() {
           <Outlet />
         </section>
       </main>
+
     </>
   );
 }

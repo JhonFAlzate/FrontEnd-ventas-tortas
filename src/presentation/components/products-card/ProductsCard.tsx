@@ -1,17 +1,17 @@
-import { productsPastel } from "../../../interface";
-
+import { productsPastel } from "@/interface/index";
+import { FaStore } from "react-icons/fa6";
+import { FaMoneyBillWave } from "react-icons/fa";
 
 type ProductsCardProps ={
   product: productsPastel
 }
 
 export default function ProductsCard({ product }:ProductsCardProps) {
-
-
+  
+  
   return (
     <>
           <div className="rounded shadow-lg ">
-            <a href="#"></a>
             <div className="relative flex items-center justify-center">
               <a href="#">
                 <img
@@ -23,64 +23,46 @@ export default function ProductsCard({ product }:ProductsCardProps) {
               </a>
               <a href="#!">
                 <div className="text-xs absolute top-0 right-0 bg-indigo-600 px-4 py-2 text-white mt-3 mr-3 hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
-                  Cooking
+                  { product.tipoProducto }
                 </div>
               </a>
             </div>
-            <div className="px-2 py-1 mb-auto">
+
+            <div className="text-center py-3">
               <a
                 href="#"
-                className="font-medium text-lg  hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2"
+                className="font-medium text-lg  hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2 capitalize"
               >
-                Simplest Salad Recipe ever
+                { product.nombreProducto }
               </a>
-              <p className="text-gray-500 text-sm">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
             </div>
-            <div className="px-6 py-2 flex flex-row items-center justify-between bg-gray-100">
-              <span className="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
-                <svg
-                  height="13px"
-                  width="13px"
-                  version="1.1"
-                  id="Layer_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 512 512"
-                >
-                  <g>
-                    <g>
-                      <path d="M256,0C114.837,0,0,114.837,0,256s114.837,256,256,256s256-114.837,256-256S397.163,0,256,0z M277.333,256 c0,11.797-9.536,21.333-21.333,21.333h-85.333c-11.797,0-21.333-9.536-21.333-21.333s9.536-21.333,21.333-21.333h64v-128 c0-11.797,9.536-21.333,21.333-21.333s21.333,9.536,21.333,21.333V256z"></path>
-                    </g>
-                  </g>
-                </svg>
-                <span className="ml-1">6 mins ago</span>
-              </span>
+            <div className=" py-2 px-4 grid gap-2 items-center">
+              <p className="flex items-center gap-2">
+                <FaStore className="text-indigo-800"/>
+                  Venta :
+                <span className="font-black uppercase">
+                  ${ product.precioVenta }
+                </span>
+              </p>
 
-              <span className="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
-                <svg
-                  className="h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
-                  ></path>
-                </svg>
-                <span className="ml-1">39 Comments</span>
-              </span>
+              <p className="flex items-center gap-2">
+              <FaMoneyBillWave  className="text-indigo-800"/>
+                Compra :
+                <span className="font-black uppercase">
+                  ${ product.precioCompra } 
+                </span>
+              </p>               
+            </div>
+
+            <div className="flex justify-center gap-5 py-5 text-white ">
+              <button className="bg-blue-500 rounded-lg py-2 px-5 capitalize font-black transition-colors hover:bg-opacity-80">
+                Editar
+              </button>
+              <button className="bg-red-500 rounded-lg py-2 px-5 capitalize font-black transition-colors hover:bg-opacity-80">
+                Eliminar
+              </button>
             </div>
           </div>
-
-
-
     </>
   );
 }
